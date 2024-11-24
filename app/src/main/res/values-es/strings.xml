@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FreeVideoGame</string>
+    <string name="logo_name">Virtual Realm</string>
+
+    <string name="login_user">Ingrese su usuario</string>
+    <string name="login_password">Ingrese su contraseña</string>
+
+    <string name="login_hint_user">Usuario</string>
+    <string name="login_hint_password">Contraseña</string>
+    <string name="login_sign_in">INICIAR SESIÓN</string>
+    <string name="login_title">Inicia Sesión</string>
+    <string name="login_message_mistake">Usuario y/o contraseña incorrecta. Reinténtalo nuevamente</string>
+
+    <string name="error_user">Ingrese un usuario valido</string>
+    <string name="error_password">Ingrese una contraseña valido</string>
+
+    <string name="helper_password">Debe tener entre 4 a 30 caracteres</string>
+</resources>

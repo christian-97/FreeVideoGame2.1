@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FreeVideoGame</string>
+    <string name="logo_name">Virtual Realm</string>
+
+    <string name="login_user">Enter user</string>
+    <string name="login_password">Enter password</string>
+
+    <string name="login_hint_user">User</string>
+    <string name="login_hint_password">Password</string>
+    <string name="login_sign_in">SIGN IN</string>
+    <string name="login_title">Log In</string>
+    <string name="login_message_mistake">Incorrect username and/or password. Try again</string>
+
+    <string name="error_user">Enter a valid user</string>
+    <string name="error_password">Enter a valid password</string>
+
+    <string name="helper_password">Must be between 4 to 30 characters</string>
+</resources>

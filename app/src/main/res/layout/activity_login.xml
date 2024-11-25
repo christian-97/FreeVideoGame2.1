@@ -13,10 +13,12 @@
         android:scaleType="centerCrop"
         android:src="@drawable/login_main" />
 
+    <!--se cambió android:background="#b8000000" por android:background="#38000000"
+        para que la imagen se vea mas clara-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d8000000"
+        android:background="#38000000"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="40dp">
@@ -25,7 +27,8 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:src="@drawable/title" />
+            android:src="@drawable/title"
+            app:tint="#ffffff" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,16 +40,17 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilUser"
+            style="@style/Login_TextInputLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="62dp"
             android:layout_marginTop="40dp"
             android:hint="@string/login_hint_user"
-            style="@style/Login_TextInputLayout"
             app:placeholderText="@string/login_user"
             app:startIconDrawable="@drawable/icon_person">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUser"
+                android:background="@drawable/blurred_overlay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white" />
@@ -69,6 +73,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
+                android:background="@drawable/blurred_overlay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -83,7 +88,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="480dp"
-        android:backgroundTint="#171721"
+        android:backgroundTint="#2b2d36"
+        android:textColor="#FFFFFF"
         android:fontFamily="sans-serif-light"
         android:text="@string/login_sign_in"
         android:textSize="18sp" />

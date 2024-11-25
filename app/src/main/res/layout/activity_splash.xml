@@ -16,9 +16,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d8000000"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:background="#98000000"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"></LinearLayout>
 
     <ImageView
         android:id="@+id/ivLogo"

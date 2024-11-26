@@ -5,28 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    tools:context=".LoadingActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/splash_main" />
+        android:scaleType="fitXY"
+        android:src="@drawable/loading_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d8000000"
-        android:orientation="vertical">
+        android:background="#d8000000">
     </LinearLayout>
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lavLogo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
-        app:lottie_colorFilter="@color/blue"
-        app:lottie_rawRes="@raw/splash_logo" />
+        app:lottie_rawRes="@raw/loading"
+        app:lottie_repeatCount="3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

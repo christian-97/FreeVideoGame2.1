@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FreeVideoGame</string>
+    <string name="app_name">NIC</string>
     <string name="logo_name">Virtual Realm</string>
 
     <string name="login_user">Enter user</string>
@@ -10,6 +10,9 @@
     <string name="login_sign_in">SIGN IN</string>
     <string name="login_title">Log In</string>
     <string name="login_message_mistake">Incorrect username and/or password. Try again</string>
+
+    <string name="login_helper_user">Enter a valid user</string>
+    <string name="login_helper_password">Enter a valid password</string>
 
     <string name="error_user">Enter a valid user</string>
     <string name="error_password">Enter a valid password</string>

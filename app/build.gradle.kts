@@ -40,7 +40,8 @@ android {
 }
 
 dependencies {
-    //implementation("com.google.android.material:material:<latest-version>")
+
+    implementation("com.airbnb.android:lottie:3.7.0")
     implementation("com.google.android.material:material:1.11.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

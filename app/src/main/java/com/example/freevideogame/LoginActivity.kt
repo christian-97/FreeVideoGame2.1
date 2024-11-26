@@ -1,5 +1,6 @@
 package com.example.freevideogame
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
@@ -15,11 +16,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        SystemBarsUtil.hideSystemBars(this)
 
         binding.etUser.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 val user = binding.etUser.text.toString()
-                if (user.isEmpty()) binding.tilUser.error = "Ingrese un usuario valido"
+                if (user.isEmpty()) binding.tilUser.error = getString(R.string.login_helper_user)
                 else binding.tilUser.error = null
             }
             if(hasFocus) {
@@ -35,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         binding.etPassword.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 val password = binding.etPassword.text.toString()
-                if (password.isEmpty()) binding.tilPassword.error = "Ingrese una contraseña valido"
+                if (password.isEmpty()) binding.tilPassword.error = getString(R.string.login_helper_password)
                 else binding.tilPassword.error = null
             }
             if(hasFocus) {
@@ -65,11 +67,13 @@ class LoginActivity : AppCompatActivity() {
             else binding.tilPassword.error = null
 
             if (user.isNotEmpty() && password.isNotEmpty()) {
-                if (password.length >= 4 && password.length <= 30) {
+                if (password.length in 4..30) {
                     binding.tilPassword.setHelperTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)))
                     if (user == "arial" && password == "123456789") {
-                        val intent = Intent(this, MainActivity::class.java)
+                        saveSession(user)
+                        val intent = Intent(this, LoadingActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }
                     else binding.lyMistake.visibility = View.VISIBLE
                 }
@@ -78,5 +82,12 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun saveSession(user: String) {
+        val shared = getSharedPreferences("LoginData", Context.MODE_PRIVATE)
+        val edit = shared.edit()
+        edit.putString("user", user)
+        edit.commit()
     }
 }

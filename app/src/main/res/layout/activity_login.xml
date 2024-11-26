@@ -27,8 +27,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:src="@drawable/title"
-            app:tint="#ffffff" />
+            android:src="@drawable/login_title" />
 
         <TextView
             android:layout_width="wrap_content"

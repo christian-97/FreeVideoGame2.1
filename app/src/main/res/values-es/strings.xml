@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FreeVideoGame</string>
+    <string name="app_name">NIC</string>
     <string name="logo_name">Virtual Realm</string>
 
     <string name="login_user">Ingrese su usuario</string>
@@ -11,6 +11,9 @@
     <string name="login_sign_in">INICIAR SESIÓN</string>
     <string name="login_title">Inicia Sesión</string>
     <string name="login_message_mistake">Usuario y/o contraseña incorrecta. Reinténtalo nuevamente</string>
+
+    <string name="login_helper_user">Ingrese un usuario valido</string>
+    <string name="login_helper_password">Ingrese una contraseña valido</string>
 
     <string name="error_user">Ingrese un usuario valido</string>
     <string name="error_password">Ingrese una contraseña valido</string>

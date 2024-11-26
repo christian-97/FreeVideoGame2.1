@@ -28,6 +28,6 @@ class SplashActivity : AppCompatActivity() {
         val down = AnimationUtils.loadAnimation(this, R.anim.scroll_down)
 
         binding.ivLogo.setAnimation(up)
-        binding.ivName.setAnimation(down)
+        //binding.ivName.setAnimation(down)
     }
 }

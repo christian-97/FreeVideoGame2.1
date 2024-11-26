@@ -31,13 +31,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/splash_logo" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/ivName"
         android:layout_width="80dp"
         android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLogo"
-        app:srcCompat="@drawable/splash_name" />
+        app:srcCompat="@drawable/splash_name" /> -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

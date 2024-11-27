@@ -19,4 +19,7 @@
     <string name="error_password">Ingrese una contraseña valido</string>
 
     <string name="helper_password">Debe tener entre 4 a 30 caracteres</string>
+
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Cerrar</string>
 </resources>

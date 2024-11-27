@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_header"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    android:background="@color/black"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/game"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d8000000"
+        android:gravity="center_vertical"
+        android:padding="32dp">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:src="@drawable/icon_logo" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neat Idea Co"
+            android:paddingLeft="15dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</FrameLayout>

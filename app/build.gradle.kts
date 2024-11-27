@@ -40,9 +40,12 @@ android {
 }
 
 dependencies {
+    implementation("androidx.drawerlayout:drawerlayout:1.2.0")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
-    implementation("com.airbnb.android:lottie:3.7.0")
-    implementation("com.google.android.material:material:1.11.0")
+    implementation(libs.lottie)
+    implementation(libs.material.v1110)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

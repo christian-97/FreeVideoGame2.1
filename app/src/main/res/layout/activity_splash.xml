@@ -16,8 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d8000000"
-        android:orientation="vertical">
+        android:background="#d8000000">
     </LinearLayout>
 
     <com.airbnb.lottie.LottieAnimationView
@@ -25,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
-        app:lottie_colorFilter="@color/blue"
+        app:lottie_colorFilter="@color/orange"
         app:lottie_rawRes="@raw/splash_logo" />
 
 

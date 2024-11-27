@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/iStart"
+            android:icon="@drawable/icon_logo"
+            android:title="Inicio"
+            android:checkable="true"/>
+
+        <item
+            android:icon="@drawable/icon_start"
+            android:title="Favoritos"
+            android:checkable="true"/>
+
+        <item
+            android:icon="@drawable/icon_settings"
+            android:title="Ajustes"
+            android:checkable="true"/>
+
+        <item
+            android:icon="@drawable/icon_history"
+            android:title="Historial"
+            android:checkable="true"/>
+
+        <item
+            android:icon="@drawable/icon_block"
+            android:title="Terminos y Privacidad"
+            android:checkable="true"/>
+
+        <item
+            android:id="@+id/iCloseSession"
+            android:icon="@drawable/icon_exit"
+            android:title="Cerrar Sesión"
+            android:checkable="true"/>
+    </group>
+
+    <item android:title="Plataformas">
+        <menu>
+            <item
+                android:icon="@drawable/icon_window"
+                android:title="windows (PC)" />
+
+            <item
+                android:icon="@drawable/icon_browser"
+                android:title="Browser (Web)" />
+
+            <item
+                android:title="All Platforms" />
+        </menu>
+    </item>
+
+</menu>

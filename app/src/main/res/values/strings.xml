@@ -18,4 +18,8 @@
     <string name="error_password">Enter a valid password</string>
 
     <string name="helper_password">Must be between 4 to 30 characters</string>
+
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>

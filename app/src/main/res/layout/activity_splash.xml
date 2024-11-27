@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
-        app:lottie_colorFilter="@color/orange"
+        app:lottie_colorFilter="@color/blue"
         app:lottie_rawRes="@raw/splash_logo" />
 
 

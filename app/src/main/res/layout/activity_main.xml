@@ -5,27 +5,41 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#070B16"
     tools:context=".MainActivity"
-    tools:openDrawer="start"
-    android:background="#070B16">
+    tools:openDrawer="start">
 
-    <include
-        layout="@layout/layout_main"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/header_main"
-        app:menu="@menu/activity_main_drawer"
         android:background="#020305"
+        app:headerLayout="@layout/header_main"
         app:itemBackground="@drawable/nav_item_bg"
+        app:itemIconTint="@color/nav_item_text"
         app:itemTextColor="@color/nav_item_text"
-        app:itemIconTint="@color/nav_item_text" >
+        app:menu="@menu/activity_main_drawer">
 
     </com.google.android.material.navigation.NavigationView>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

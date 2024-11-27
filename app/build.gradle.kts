@@ -40,11 +40,16 @@ android {
 }
 
 dependencies {
-    implementation("androidx.drawerlayout:drawerlayout:1.2.0")
-    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    implementation(libs.androidx.drawerlayout)
+    implementation(libs.androidx.coordinatorlayout)
 
     implementation(libs.lottie)
     implementation(libs.material.v1110)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    implementation(libs.picasso)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

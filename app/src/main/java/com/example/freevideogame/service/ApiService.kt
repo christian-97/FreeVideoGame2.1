@@ -14,4 +14,11 @@ interface ApiService {
 
     @GET("game")
     suspend fun getGameDetails(@Query("id") gameId: Int): Response<GameDetailsResponse>
+
+
+    @GET("games")
+    suspend fun getGamePlatform(@Query("platform") platform: String): Response<GameList>
+
+    @GET("games")
+    suspend fun getGameCategory(@Query("category") category: String): Response<GameList>
 }

@@ -37,15 +37,84 @@
     <item android:title="Plataformas">
         <menu>
             <item
+                android:id="@+id/iWindows"
                 android:icon="@drawable/icon_window"
-                android:title="windows (PC)" />
+                android:title="Windows (PC)"
+                android:checkable="true"/>
 
             <item
+                android:id="@+id/iBrowser"
                 android:icon="@drawable/icon_browser"
-                android:title="Browser (Web)" />
+                android:title="Browser (Web)"
+                android:checkable="true"/>
 
             <item
-                android:title="All Platforms" />
+                android:id="@+id/iAllPlatforms"
+                android:title="All Platforms"
+                android:checkable="true"/>
+        </menu>
+    </item>
+
+    <item android:title="Categorias">
+        <menu>
+            <item
+                android:id="@+id/iMMORPG"
+                android:title="MMORPG"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iShooter"
+                android:title="Shooter"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iMOBA"
+                android:title="MOBA"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iAnime"
+                android:title="Anime"
+                android:checkable="true"/>
+
+
+            <item
+                android:id="@+id/iBattleRoyale"
+                android:title="Battle Royale"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iStrategyGames"
+                android:title="Strategy"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iFantasyGames"
+                android:title="Fantasy"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSciFi"
+                android:title="Sci-Fi"
+                android:checkable="true"/>
+
+
+
+            <item
+                android:id="@+id/iCard"
+                android:title="Card Games"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iRacing"
+                android:title="Racing"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iFighting"
+                android:title="Fighting"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSocial"
+                android:title="Social"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSports"
+                android:title="Sports"
+                android:checkable="true"/>
+
         </menu>
     </item>
 

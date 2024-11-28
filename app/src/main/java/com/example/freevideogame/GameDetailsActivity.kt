@@ -1,12 +1,11 @@
 package com.example.freevideogame
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.freevideogame.adapter.ScreenshotsAdapter
 import com.example.freevideogame.databinding.ActivityGameDetailsBinding
-import com.example.freevideogame.databinding.ActivityMainBinding
 import com.example.freevideogame.model.GameDetailsResponse
 import com.example.freevideogame.retrofit.RetrofitHelper
 import com.squareup.picasso.Picasso
@@ -45,5 +44,17 @@ class GameDetailsActivity : AppCompatActivity() {
 
     private fun createUI(game: GameDetailsResponse) {
         Picasso.get().load(game.thumbnail).into(binding.ivGame)
+
+        val gridLayoutManager = GridLayoutManager(this, 2)
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                val totalItems = game.screenshots.size
+                return if (totalItems == 3 && position == 2) 2
+                       else 1
+            }
+        }
+        binding.rvImage.layoutManager = gridLayoutManager
+        binding.rvImage.adapter = ScreenshotsAdapter(game.screenshots)
+
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Link">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:linksClickable">true</item>
+        <item name="android:autoLink">web</item>
+        <item name="android:layout_marginVertical">4dp</item>
+    </style>
+</resources>

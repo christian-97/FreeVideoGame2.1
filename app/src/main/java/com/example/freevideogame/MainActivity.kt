@@ -4,21 +4,27 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.freevideogame.adapter.GameAdapter
+import com.example.freevideogame.adapter.MainBarAdapter
 import com.example.freevideogame.databinding.ActivityMainBinding
+import com.example.freevideogame.fragment.ViewPagerAdapter
+import com.example.freevideogame.model.MainBarOptions
 import com.example.freevideogame.retrofit.RetrofitHelper
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -47,6 +53,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.navView.setCheckedItem(R.id.iStart)
 
         gamesList("", "")
+
+        // ----------------------------------------------------------------
+        binding.viewPager.adapter = ViewPagerAdapter(this)
+        binding.rvMainBar.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+        binding.rvMainBar.adapter = MainBarAdapter(MainBarOptions.main) { position -> binding.viewPager.currentItem = position }
+
+        // ----------------------------------------------------------------
     }
 
     private fun gamesList(by: String, selected: String) {
@@ -63,7 +76,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if (games != null) {
                 runOnUiThread {
                     binding.rvGame.layoutManager = GridLayoutManager(this@MainActivity, 2)
-                    binding.rvGame.adapter = GameAdapter(games) {navigationDetails(it)}
+                    binding.rvGame.adapter = GameAdapter(games) { navigationDetails(it) }
                     binding.pb.isVisible = false
                 }
             }
@@ -100,6 +113,34 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.iFighting to "fighting",
             R.id.iSocial to "social",
             R.id.iSports to "sports",
+
+            R.id.iMMO to "mmo",
+            R.id.iMMOFPS to "mmofps",
+            R.id.iActionRPG to "action-rpg",
+            R.id.iSandbox to "sandbox",
+            R.id.iOpenWorld to "open-world  ",
+            R.id.iSurvival to "survival",
+            R.id.iMMOTPS to "mmotps",
+            R.id.iPvP to "pvp",
+            R.id.iPvE to "pve",
+            R.id.iPixel to "pixel",
+            R.id.iMMORTS to "mmorts",
+            R.id.iAction to "action",
+            R.id.iVoxel to "voxel",
+            R.id.iZombie to "zombie",
+            R.id.iTurnBased to "turn-based",
+
+            R.id.iFirstPerson to "first-person",
+            R.id.iThirdPerson to "third-Person",
+            R.id.iTopDown to "top-down",
+            R.id.i3DGraphics to "3d",
+            R.id.i2DGraphics to "2d",
+            R.id.iTank to "tank",
+            R.id.iSpace to "space",
+            R.id.iSailing to "sailing",
+            R.id.iSideScroller to "side-scroller",
+            R.id.iSuperhero to "superhero",
+            R.id.iPermadeath to "permadeath"
         )
 
         when (item.itemId) {

@@ -115,6 +115,124 @@
                 android:title="Sports"
                 android:checkable="true"/>
 
+
+            <item
+                android:id="@+id/iMMO"
+                android:title="MMO"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iMMOFPS"
+                android:title="MMOFPS"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iActionRPG"
+                android:title="Action RPG"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSandbox"
+                android:title="Sandbox"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iOpenWorld"
+                android:title="Open World"
+                android:checkable="true"/>
+
+
+            <item
+                android:id="@+id/iSurvival"
+                android:title="Survival"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iMMOTPS"
+                android:title="MMOTPS"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iPvP"
+                android:title="PvP"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iPvE"
+                android:title="PvE"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iPixel"
+                android:title="Pixel"
+                android:checkable="true"/>
+
+
+
+
+            <item
+                android:id="@+id/iMMORTS"
+                android:title="MMORTS"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iAction"
+                android:title="Action"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iVoxel"
+                android:title="Voxel"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iZombie"
+                android:title="Zombie"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iTurnBased"
+                android:title="Turn-Based"
+                android:checkable="true"/>
+
+
+
+            <item
+                android:id="@+id/iFirstPerson"
+                android:title="First Person"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iThirdPerson"
+                android:title="Third Person"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iTopDown"
+                android:title="Top-Down"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/i3DGraphics"
+                android:title="3D Graphics"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/i2DGraphics"
+                android:title="2D Graphics"
+                android:checkable="true"/>
+
+
+
+            <item
+                android:id="@+id/iTank"
+                android:title="Tank"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSpace"
+                android:title="Space"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSailing"
+                android:title="Sailing"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSideScroller"
+                android:title="3Side Scroller"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iSuperhero"
+                android:title="Superhero"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/iPermadeath"
+                android:title="Permadeath"
+                android:checkable="true"/>
+
         </menu>
     </item>
 

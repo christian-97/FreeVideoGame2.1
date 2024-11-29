@@ -8,4 +8,7 @@
     <color name="orange">#FFC126</color>
     <color name="selection">#141722</color>
     <color name="violet">#CE641CD9</color>
+
+    <color name="selected">#CE641CD9</color>
+    <color name="unselected">#00000000</color>
 </resources>

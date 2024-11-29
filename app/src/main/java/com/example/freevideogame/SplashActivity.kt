@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
 
         SystemBarsUtil.hideSystemBars(this)
 
-        binding.lavLogo.animate().translationY(-1500f).setDuration(500).setStartDelay(3300).start()
+        //binding.lavLogo.animate().translationY(-1500f).setDuration(500).setStartDelay(3300).start()
 
         val shared = getSharedPreferences("LoginData", Context.MODE_PRIVATE)
         val user = shared.getString("user", "").toString()

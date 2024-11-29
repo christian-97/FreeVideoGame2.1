@@ -14,7 +14,7 @@ data class GameDetailsResponse (
     val release_date: String,
     val freetogame_profile_url: String,
 
-    val minimum_system_requirements: Requirements,
+    val minimum_system_requirements: Requirements?,
     val screenshots: List<Screenshots>
 )
 

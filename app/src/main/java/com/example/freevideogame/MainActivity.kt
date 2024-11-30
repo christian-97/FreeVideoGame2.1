@@ -16,12 +16,14 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.freevideogame.adapter.GameAdapter
-import com.example.freevideogame.adapter.MainBarAdapter
 import com.example.freevideogame.databinding.ActivityMainBinding
+import com.example.freevideogame.fragment.NewFragment
+import com.example.freevideogame.fragment.StartFragment
 import com.example.freevideogame.fragment.ViewPagerAdapter
 import com.example.freevideogame.model.MainBarOptions
 import com.example.freevideogame.retrofit.RetrofitHelper
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,6 +34,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var toogle: ActionBarDrawerToggle
     private  val retrofit = RetrofitHelper.getInstace()
+
+    private lateinit var adapter: ViewPagerAdapter
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,48 +59,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.navView.setNavigationItemSelectedListener(this)
         binding.navView.setCheckedItem(R.id.iStart)
 
-        gamesList("", "")
-
         // ----------------------------------------------------------------
-        //binding.viewPager.adapter = ViewPagerAdapter(this)
-        binding.rvMainBar.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
-        binding.rvMainBar.adapter = MainBarAdapter(MainBarOptions.main) { position -> binding.viewPager.currentItem = position }
+        adapter = ViewPagerAdapter(this)
+        binding.viewPager.adapter = adapter
 
-        // ----------------------------------------------------------------
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            val titles = listOf("INICIO", "CATEGORIA")
+            tab.text = titles[position]
+        }.attach()
+
+        startFragment()
     }
 
-    private fun gamesList(by: String, selected: String) {
-        binding.pb.isVisible = true
-        CoroutineScope(Dispatchers.IO).launch {
-            val retrofit = retrofit
-            val response = when {
-                selected.isEmpty() -> retrofit.getGames()
-                by == "platform" -> retrofit.getGamePlatform(selected)
-                else -> retrofit.getGameCategory(selected)
-            }
-
-            val games = response.body()
-            if (games != null) {
-                runOnUiThread() {
-                    binding.rvGame.layoutManager = GridLayoutManager(this@MainActivity, 2)
-                    binding.rvGame.adapter = GameAdapter(games) { navigationDetails(it) }
-                    binding.pb.isVisible = false
-                }
-            }
-        }
+    private fun startFragment() {
+        val start = adapter.getFragment(0) as? StartFragment
+        start?.gameList()
     }
 
-    private fun navigationDetails(id: Int) {
-        val intent = Intent(this, GameDetailsActivity::class.java)
-        intent.putExtra("extra_id", id)
-        startActivity(intent)
-    }
 
     // =================================================================================================
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         val platformMap = mapOf(
-            R.id.iStart to "",
             R.id.iWindows to "pc",
             R.id.iBrowser to "browser",
             R.id.iAllPlatforms to ""
@@ -149,12 +133,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val selectedCategory = categoryMap[item.itemId]
         val selectedPlatform = platformMap[item.itemId]
 
-        //(binding.viewPager.adapter as ViewPagerAdapter).setSelectedData(selectedCategory, selectedPlatform)
-        //binding.viewPager.currentItem = 2
-
         when {
-            selectedPlatform != null -> gamesList("platform", selectedPlatform)
-            selectedCategory != null -> gamesList("category", selectedCategory)
+            selectedPlatform != null -> tag("platform", selectedPlatform)
+            selectedCategory != null -> tag("category", selectedCategory)
+
             item.itemId == R.id.iCloseSession -> {
                 confirmLogout()
                 val otherItem = binding.navView.menu.findItem(R.id.iStart)
@@ -164,6 +146,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.main.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun tag(by: String, selected: String) {
+        val intent = Intent(this, TagActivity::class.java).apply {
+            putExtra("by", by)
+            putExtra("selected", selected)
+        }
+        startActivity(intent)
     }
 
 
@@ -204,7 +194,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun deleteSession() {
-        var shared = getSharedPreferences("LoginData", Context.MODE_PRIVATE)
+        val shared = getSharedPreferences("LoginData", Context.MODE_PRIVATE)
         val edit = shared.edit()
         edit.clear()
         edit.remove("user")

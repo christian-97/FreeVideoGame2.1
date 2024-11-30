@@ -31,7 +31,6 @@ class GameDetailsActivity : AppCompatActivity() {
 
         val id: Int = intent.getIntExtra(EXTRA_ID, 0)
 
-        //Log.d("Hola", id.toString())
         getGameInformation(id)
 
         binding.ivReturn.setOnClickListener {

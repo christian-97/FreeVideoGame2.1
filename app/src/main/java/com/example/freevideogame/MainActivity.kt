@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.freevideogame.adapter.GameAdapter
 import com.example.freevideogame.databinding.ActivityMainBinding
-import com.example.freevideogame.fragment.NewFragment
 import com.example.freevideogame.fragment.StartFragment
 import com.example.freevideogame.fragment.ViewPagerAdapter
 import com.example.freevideogame.model.MainBarOptions
@@ -33,11 +32,9 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var toogle: ActionBarDrawerToggle
-    private  val retrofit = RetrofitHelper.getInstace()
-
     private lateinit var adapter: ViewPagerAdapter
+    private lateinit var binding: ActivityMainBinding
 
-    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -141,10 +138,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 confirmLogout()
                 val otherItem = binding.navView.menu.findItem(R.id.iStart)
                 otherItem.isChecked = false
+                binding.main.closeDrawer(GravityCompat.START)
             }
         }
 
-        binding.main.closeDrawer(GravityCompat.START)
+        //
         return true
     }
 

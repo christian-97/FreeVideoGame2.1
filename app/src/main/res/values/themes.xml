@@ -41,4 +41,14 @@
         <item name="android:layout_marginVertical">4dp</item>
     </style>
 
+    <dimen name="_8sdp">8dp</dimen>
+    <dimen name="_14ssp">14dp</dimen>
+    <dimen name="_70ssp">70dp</dimen>
+    <dimen name="_100ssp">100dp</dimen>
+    <dimen name="_10ssp">10dp</dimen>
+    <dimen name="_4ssp">4dp</dimen>
+    <dimen name="_20ssp">20dp</dimen>
+    <dimen name="_3ssp">3dp</dimen>
+    <dimen name="_12ssp">12dp</dimen>
+
 </resources>

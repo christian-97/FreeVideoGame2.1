@@ -52,6 +52,8 @@ dependencies {
 
     implementation(libs.picasso)
 
+    implementation("com.makeramen:roundedimageview:2.3.0")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

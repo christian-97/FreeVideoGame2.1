@@ -25,6 +25,7 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         resources.getColor(R.color.blue, theme)
 
+        binding.navView.setNavigationItemSelectedListener(this)
+
         toogle = ActionBarDrawerToggle(this, binding.main, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         binding.main.addDrawerListener(toogle)
 
@@ -55,7 +58,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         gamesList("", "")
 
         // ----------------------------------------------------------------
-        binding.viewPager.adapter = ViewPagerAdapter(this)
+        //binding.viewPager.adapter = ViewPagerAdapter(this)
         binding.rvMainBar.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
         binding.rvMainBar.adapter = MainBarAdapter(MainBarOptions.main) { position -> binding.viewPager.currentItem = position }
 
@@ -74,7 +77,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             val games = response.body()
             if (games != null) {
-                runOnUiThread {
+                runOnUiThread() {
                     binding.rvGame.layoutManager = GridLayoutManager(this@MainActivity, 2)
                     binding.rvGame.adapter = GameAdapter(games) { navigationDetails(it) }
                     binding.pb.isVisible = false
@@ -143,29 +146,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.iPermadeath to "permadeath"
         )
 
-        when (item.itemId) {
-            R.id.iCloseSession -> {
+        val selectedCategory = categoryMap[item.itemId]
+        val selectedPlatform = platformMap[item.itemId]
+
+        //(binding.viewPager.adapter as ViewPagerAdapter).setSelectedData(selectedCategory, selectedPlatform)
+        //binding.viewPager.currentItem = 2
+
+        when {
+            selectedPlatform != null -> gamesList("platform", selectedPlatform)
+            selectedCategory != null -> gamesList("category", selectedCategory)
+            item.itemId == R.id.iCloseSession -> {
                 confirmLogout()
                 val otherItem = binding.navView.menu.findItem(R.id.iStart)
-                otherItem.isChecked = true
-            }
-
-            else -> {
-                when {
-                    platformMap.containsKey(item.itemId) -> { val selectedPlatform = platformMap[item.itemId] ?: ""
-                        gamesList("platform", selectedPlatform)
-                    }
-                    categoryMap.containsKey(item.itemId) -> {
-                        val selectedCategory = categoryMap[item.itemId] ?: ""
-                        gamesList("category", selectedCategory)
-                    }
-                }
+                otherItem.isChecked = false
             }
         }
 
         binding.main.closeDrawer(GravityCompat.START)
         return true
     }
+
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)

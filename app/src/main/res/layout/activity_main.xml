@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#06020D"
+    android:background="@color/main"
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
@@ -23,27 +23,34 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/selected"
-                app:tabTextColor="@color/white"
-                app:layout_constraintTop_toTopOf="parent"/>
-            
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
+            <FrameLayout
+                android:id="@+id/fragment_container"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/chipNavigationBar"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabLayout"/>
+                app:layout_constraintEnd_toEndOf="parent" />
 
+            <com.ismaeldivita.chipnavigation.ChipNavigationBar
+                android:id="@+id/chipNavigationBar"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cnb_menuResource="@menu/bottom_menu"
+                android:background="#0E0F1C"
+                android:padding="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="32dp"
+                app:cnb_iconSize="20dp"
+                app:cnb_orientationMode="horizontal"
+                app:cnb_radius="10dp"
+                app:cnb_unselectedColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

@@ -1,6 +1,7 @@
 package com.example.freevideogame.model
 
 data class GameDetailsResponse (
+    val id: Int,
     val title : String,
     val thumbnail: String,
     val status: String,

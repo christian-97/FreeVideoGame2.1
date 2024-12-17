@@ -1,54 +1,33 @@
 package com.example.freevideogame.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.freevideogame.GameDetailsActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.example.freevideogame.R
-import com.example.freevideogame.adapter.GameMainAdapter
-import com.example.freevideogame.retrofit.RetrofitHelper
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class StartFragment: Fragment(R.layout.fragment_start) {
 
-    private lateinit var rvGame: RecyclerView
-    private lateinit var pb: ProgressBar
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
+    private lateinit var adapter: ViewPagerAdapter
 
-    private var retrofit = RetrofitHelper.getInstace()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rvGame = view.findViewById(R.id.rvGame)
-        pb = view.findViewById(R.id.pb)
-        gameList()
-    }
 
-    fun gameList() {
-        if (::pb.isInitialized) pb.isVisible = true
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = retrofit.getGames()
-            val games = response.body()
-            if (games != null) {
-                withContext(Dispatchers.Main) {
-                    rvGame.layoutManager = LinearLayoutManager(context)
-                    rvGame.adapter = GameMainAdapter(games) { navigationDetails(it) }
-                    pb.isVisible = false
-                }
-            }
-        }
-    }
+        viewPager = view.findViewById(R.id.viewPager)
+        tabLayout = view.findViewById(R.id.tabLayout)
+        // ----------------------------------------------------------------
+        adapter = ViewPagerAdapter(this)
+        viewPager.adapter = adapter
 
-    private fun navigationDetails(id: Int) {
-        val intent = Intent(context, GameDetailsActivity::class.java)
-        intent.putExtra("extra_id", id)
-        startActivity(intent)
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            val titles = listOf("JUEGOS", "CATEGORIA", "PLATAFORMA", "RELEVANCIA")
+            tab.text = titles[position]
+        }.attach()
+
     }
 }

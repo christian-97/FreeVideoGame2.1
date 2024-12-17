@@ -9,8 +9,17 @@
     <color name="selection">#141722</color>
     <color name="violet">#CE641CD9</color>
     <color name="title">#5819BF</color>
+    <color name="yellow">#FFFD55</color>
+    <color name="green">#22B14C</color>
 
     <color name="selected">#020105</color>
     <color name="unselected">#00000000</color>
     <color name="main">#020105</color>
+    <color name="email">#D92A7E</color>
+
+
+    <color name="main_color">#252b45</color>
+    <color name="black2">#28292b</color>
+    <color name="oranges">#EA6007</color>
+    <color name="greys">#989797</color>
 </resources>

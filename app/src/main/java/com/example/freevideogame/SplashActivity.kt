@@ -20,20 +20,20 @@ class SplashActivity : AppCompatActivity() {
 
         SystemBarsUtil.hideSystemBars(this)
 
-        //binding.lavLogo.animate().translationY(-1500f).setDuration(500).setStartDelay(3300).start()
-
         val shared = getSharedPreferences("LoginData", Context.MODE_PRIVATE)
-        val user = shared.getString("user", "").toString()
+        val user = shared.getString("name", "").toString()
+        val email = shared.getString("email", "").toString()
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (user.isEmpty()) {
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, BelcomeActivity::class.java)
                 startActivity(intent)
                 finish()
             }
             else {
                 val intent = Intent(this, MainActivity::class.java).apply {
-                    putExtra("user", user)
+                    putExtra("name", user)
+                    putExtra("email", email)
                 }
                 startActivity(intent)
                 finish()

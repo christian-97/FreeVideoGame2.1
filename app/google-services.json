@@ -1,0 +1,29 @@
+  {
+  "project_info": {
+    "project_number": "1094802951228",
+    "project_id": "neatic-8b36e",
+    "storage_bucket": "neatic-8b36e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094802951228:android:1b5699fe0e83a651238739",
+        "android_client_info": {
+          "package_name": "com.example.freevideogame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiBagNdYY4Umo3dwzhbsUD91txnuzEAwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

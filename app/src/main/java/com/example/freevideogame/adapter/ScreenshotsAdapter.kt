@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.freevideogame.R
 import com.example.freevideogame.model.Screenshots
 
-class ScreenshotsAdapter(private val screenshots: List<Screenshots>): RecyclerView.Adapter<ScreenshotsViewHolder>() {
+class ScreenshotsAdapter(private val screenshots: List<Screenshots>, private val onItemSelected:(String) -> Unit): RecyclerView.Adapter<ScreenshotsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScreenshotsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.item_screenshots, parent, false)
         return ScreenshotsViewHolder(layoutInflater)
@@ -16,6 +16,6 @@ class ScreenshotsAdapter(private val screenshots: List<Screenshots>): RecyclerVi
 
     override fun onBindViewHolder(holder: ScreenshotsViewHolder, position: Int) {
         val item = screenshots[position]
-        holder.bind(item)
+        holder.bind(item, onItemSelected)
     }
 }

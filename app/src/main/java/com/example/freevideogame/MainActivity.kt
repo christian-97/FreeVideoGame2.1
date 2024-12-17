@@ -3,42 +3,136 @@ package com.example.freevideogame
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.PopupMenu
+import android.widget.PopupWindow
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.freevideogame.adapter.GameAdapter
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import com.example.freevideogame.databinding.ActivityMainBinding
+import com.example.freevideogame.databinding.FragmentVoidBinding
+import com.example.freevideogame.fragment.AboutFragment
+import com.example.freevideogame.fragment.CategoryFragment
+import com.example.freevideogame.fragment.FavoriteFragment
+import com.example.freevideogame.fragment.FavoriteVoidFragment
+import com.example.freevideogame.fragment.MainFragment
 import com.example.freevideogame.fragment.StartFragment
-import com.example.freevideogame.fragment.ViewPagerAdapter
-import com.example.freevideogame.model.MainBarOptions
-import com.example.freevideogame.retrofit.RetrofitHelper
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
     private lateinit var toogle: ActionBarDrawerToggle
-    private lateinit var adapter: ViewPagerAdapter
     private lateinit var binding: ActivityMainBinding
+
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        // =================================================================
+        val shared = getSharedPreferences("LoginData", Context.MODE_PRIVATE)
+        val name = shared.getString("name", "").toString()
+        val email = shared.getString("email", "").toString()
+
+        // ----------------------------------------------------------------
+        var textName : String? = null
+        var textEmail : String? = null
+        db.collection("User")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    if (document.data["email"].toString() == email) {
+                        val textFirst = document.get("firstName").toString()
+                        val textLast = document.get("lastName").toString()
+
+                        textName = "$textFirst $textLast"
+                        textEmail = document.get("email").toString()
+
+                    }
+                }
+            }
+        // ----------------------------------------------------------------
+
+
+        val username: ImageView = findViewById(R.id.ivUser)
+
+        username.setOnClickListener { view ->
+
+            val inflater = LayoutInflater.from(this)
+            val popupView = inflater.inflate(R.layout.custom_menu_layout, null)
+            
+            // ----------------------------------------------------------------
+            val textView: TextView = popupView.findViewById(R.id.name)
+            val text = "Neat Idea Co"
+            val spannableString = SpannableString(text)
+
+            val color = ContextCompat.getColor(this, R.color.blue)
+            spannableString.setSpan(ForegroundColorSpan(color), 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableString.setSpan(ForegroundColorSpan(color), 5, 8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableString.setSpan(ForegroundColorSpan(color), 11, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            textView.text = spannableString
+            // ----------------------------------------------------------------
+
+            val tvName: TextView = popupView.findViewById(R.id.textViewName)
+            val tvEmail: TextView = popupView.findViewById(R.id.textViewEmail)
+
+            // =================================================================
+            if (textName != null) {
+                tvName.text =  textName
+                tvEmail.text = textEmail
+            }
+            else {
+                tvName.text =  name
+                tvEmail.text = email
+            }
+            // =================================================================
+
+
+            val widthInPx = (280 * resources.displayMetrics.density).toInt()
+            val heightInPx = (460 * resources.displayMetrics.density).toInt()
+
+            val popupWindow = PopupWindow(popupView, widthInPx, heightInPx, true)
+            popupWindow.showAsDropDown(view, -100, 0)
+
+            val logOut = popupView.findViewById<LinearLayout>(R.id.logOut)
+            logOut.setOnClickListener {
+                confirmLogout()
+                popupWindow.dismiss()
+            }
+
+            val account = popupView.findViewById<LinearLayout>(R.id.account)
+            account.setOnClickListener {
+                val intent = Intent(this, AccountActivity::class.java).apply {
+                    putExtra("email", email)
+                }
+                startActivity(intent)
+            }
+        }
+
+        // =================================================================
+
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.tbMain)
         setSupportActionBar(toolbar)
@@ -57,22 +151,54 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.navView.setCheckedItem(R.id.iStart)
 
         // ----------------------------------------------------------------
-        adapter = ViewPagerAdapter(this)
-        binding.viewPager.adapter = adapter
 
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            val titles = listOf("INICIO", "CATEGORIA")
-            tab.text = titles[position]
-        }.attach()
+        // ----------------------------------------------------------------
+        if (savedInstanceState == null) {
+            binding.chipNavigationBar.setItemSelected(R.id.home, true)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, MainFragment())
+                .commit()
+        }
 
-        startFragment()
+        binding.chipNavigationBar.setOnItemSelectedListener { id ->
+            when (id) {
+                R.id.home -> replaceFragment(MainFragment())
+                R.id.favorite -> layout()
+                R.id.library -> replaceFragment(StartFragment())
+                R.id.about -> replaceFragment(AboutFragment())
+                else -> {}
+            }
+        }
+        // ----------------------------------------------------------------
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 
-    private fun startFragment() {
-        val start = adapter.getFragment(0) as? StartFragment
-        start?.gameList()
-    }
+    private fun layout() {
+        val shared = getSharedPreferences("LoginData", Context.MODE_PRIVATE)
+        val email = shared.getString("email", "").toString()
 
+        db.collection("Favorite")
+            .get()
+            .addOnSuccessListener { result ->
+                val idList = result.mapNotNull { document ->
+                    val mail = document.get("email").toString()
+                    val id = document.get("id")?.toString()?.toIntOrNull()
+                    if (email == mail) id else null
+                }
+
+                val fragment = if (idList.isNotEmpty()) {
+                    FavoriteFragment()
+                } else {
+                    FavoriteVoidFragment()
+                }
+
+                replaceFragment(fragment)
+            }
+    }
 
     // =================================================================================================
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -102,7 +228,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.iMMOFPS to "mmofps",
             R.id.iActionRPG to "action-rpg",
             R.id.iSandbox to "sandbox",
-            R.id.iOpenWorld to "open-world  ",
+            R.id.iOpenWorld to "open-world",
             R.id.iSurvival to "survival",
             R.id.iMMOTPS to "mmotps",
             R.id.iPvP to "pvp",
@@ -134,15 +260,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             selectedPlatform != null -> tag("platform", selectedPlatform)
             selectedCategory != null -> tag("category", selectedCategory)
 
-            item.itemId == R.id.iCloseSession -> {
+            /*item.itemId == R.id.iCloseSession -> {
                 confirmLogout()
                 val otherItem = binding.navView.menu.findItem(R.id.iStart)
                 otherItem.isChecked = false
                 binding.main.closeDrawer(GravityCompat.START)
-            }
+            }*/
+
+            /*item.itemId == R.id.iStart -> {
+                binding.viewPager.setCurrentItem(0, true)
+                binding.main.closeDrawer(GravityCompat.START)
+            }*/
         }
 
-        //
         return true
     }
 
@@ -173,15 +303,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     private fun confirmLogout() {
-        val alert = AlertDialog.Builder(this)
-        alert.setTitle("Cerrar sessión")
-        alert.setMessage("¿Estás seguro de cerrar la sesión?")
-        alert.setCancelable(false)
-        alert.setPositiveButton("Aceptar") { dialog, which ->
-            closeSession()
-        }
-        alert.setNegativeButton("Cancelar") { dialog, which -> dialog.cancel() }
-        alert.show()
+        val logoutDialog = LogoutDialogFragment() {closeSession()}
+        logoutDialog.show(supportFragmentManager, "LogoutDialog")
     }
 
     private fun closeSession() {
@@ -196,6 +319,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val edit = shared.edit()
         edit.clear()
         edit.remove("user")
-        edit.commit()
+        edit.apply()
+    }
+}
+
+class LogoutDialogFragment(private val onClick:() -> Unit) : DialogFragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.dialog_logout, container, false)
+
+        val btnAccept = view.findViewById<TextView>(R.id.btn_accept)
+        val btnCancel = view.findViewById<TextView>(R.id.btn_cancel)
+
+        btnAccept.setOnClickListener {
+            onClick()
+            dismiss()
+        }
+
+        btnCancel.setOnClickListener { dismiss() }
+
+        return view
     }
 }

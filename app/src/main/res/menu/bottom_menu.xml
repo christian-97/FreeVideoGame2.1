@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+    android:id="@+id/home"
+    android:icon="@drawable/icon_home"
+    android:title="Inicio"
+    app:cnb_backgroundColor="#3A083E"
+    app:cnb_iconColor="#FFFFFF"/>
+
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/icon_favorite"
+        android:title="Favoritos"
+        app:cnb_backgroundColor="#3A083E"
+        app:cnb_iconColor="#FFFFFF"/>
+
+    <item
+        android:id="@+id/library"
+        android:icon="@drawable/icon_library"
+        android:title="Biblioteca"
+        app:cnb_backgroundColor="#0A1F3B"
+        app:cnb_iconColor="@color/white"/>
+
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/icon_about"
+        android:title="Información"
+        app:cnb_backgroundColor="#0A1F3B"
+        app:cnb_iconColor="@color/white"/>
+</menu>

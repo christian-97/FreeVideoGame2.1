@@ -8,6 +8,7 @@
         <item name="windowNoTitle">true</item>
 
         <item name="colorControlNormal">@color/white</item>
+
     </style>
 
     <style name="Theme.FreeVideoGame" parent="Base.Theme.FreeVideoGame" />
@@ -50,5 +51,6 @@
     <dimen name="_20ssp">20dp</dimen>
     <dimen name="_3ssp">3dp</dimen>
     <dimen name="_12ssp">12dp</dimen>
+
 
 </resources>

@@ -8,8 +8,8 @@
             android:checkable="true"/>
 
         <item
-            android:icon="@drawable/icon_start"
-            android:title="Favoritos"
+            android:icon="@drawable/icon_languaje"
+            android:title="Lenguaje"
             android:checkable="true"/>
 
         <item
@@ -27,11 +27,6 @@
             android:title="Terminos y Privacidad"
             android:checkable="true"/>
 
-        <item
-            android:id="@+id/iCloseSession"
-            android:icon="@drawable/icon_exit"
-            android:title="Cerrar Sesión"
-            android:checkable="true"/>
     </group>
 
     <item android:title="Plataformas">

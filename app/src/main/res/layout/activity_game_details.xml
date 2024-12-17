@@ -5,456 +5,699 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0C0C12"
+    android:background="@color/main"
     tools:context=".GameDetailsActivity">
 
-
     <ImageView
-        android:id="@+id/ivReturn"
-        android:layout_width="40dp"
-        android:layout_height="20dp"
-        android:layout_margin="15dp"
-        android:src="@drawable/icon_left"
-        app:tint="@color/white" />
+        android:id="@+id/ivGame"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/header_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:background="#C4000000" />
+
+    <TextView
+        android:id="@+id/tvTextTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@color/white"
+        android:textSize="19sp" />
+
+
+    <!-- //////////////////////////////////  -->
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="55dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvShortDescription"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/blue"
-                tools:text="Short Description" />
+                android:layout_height="580dp">
 
-            <FrameLayout
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/ivGame"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:scaleType="fitXY" />
+                android:layout_height="120dp"
+                android:layout_margin="24dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/blur_bg"
+                app:blurOverlayColor="#6D000000"
+                app:layout_constraintBottom_toBottomOf="@+id/constraint">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#36000000">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:text="Title"
+                                android:textColor="#3580BB"
+                                android:textSize="18sp"
+                                tools:ignore="NestedWeights" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Plataforma: "
+                                    android:textColor="@color/white" />
+
+                                <ImageView
+                                    android:id="@+id/ivIcon"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:src="@drawable/windows"
+                                    app:tint="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/tvPlatform"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Windows"
+                                    android:textColor="@color/white" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Estado"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="46dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/icon_game"
+                            app:tint="#3F51B5" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gradient_bg" />
+
                 </LinearLayout>
-
-            </FrameLayout>
+            </eightbitlab.com.blurview.BlurView>
 
             <TextView
-                android:id="@+id/tvTitle"
+                android:id="@+id/tvInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:layout_marginTop="25dp"
+                android:text="Información del juego"
                 android:textColor="@color/white"
-                android:textSize="28sp"
-                tools:text="Title" />
+                android:textSize="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/blurView"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
 
-            <TextView
-                android:id="@+id/tvRealaseDate"
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurView1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="24dp"
+                android:background="@drawable/blur_bg"
+                app:blurOverlayColor="#6D000000"
+                app:layout_constraintTop_toBottomOf="@id/tvInformation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Play game"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btnPlay"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#121212"
+                        android:text="Play"
+                        android:textColor="@color/green" />
+
+                </LinearLayout>
+            </eightbitlab.com.blurview.BlurView>
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:textColor="#F08784"
-                tools:text="Realase Dat" />
+                android:layout_margin="24dp"
+                android:background="@drawable/blur_bg"
+                android:padding="16dp"
+                app:blurOverlayColor="#6D000000"
+                app:layout_constraintTop_toBottomOf="@id/blurView1">
 
-            <TextView
-                android:id="@+id/tvAbout"
+                <TextView
+                    android:id="@+id/tvShortDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Short Description"
+                    android:textColor="@color/white" />
+            </eightbitlab.com.blurview.BlurView>
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurViewX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:layout_marginVertical="25dp"
-                android:textColor="@color/orange"
-                android:textSize="20sp"
-                tools:text="Game Description" />
+                android:layout_margin="24dp"
+                android:background="@drawable/blur_bg"
 
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25sp"
-                android:justificationMode="inter_word"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                tools:text="Description Dauntless" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="25dp"
-                android:layout_marginVertical="25dp"
-                android:background="#C73742" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:text="Additional Information"
-                android:textColor="@color/orange"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="horizontal">
+                app:blurOverlayColor="#6D000000"
+                app:layout_constraintTop_toBottomOf="@id/blurView2">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="end"
+                    android:background="@color/white"
                     android:src="@drawable/icon_info"
-                    app:tint="@color/grey" />
+                    app:tint="#00BCD4" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Please note this free-to-play game may or may not offer optional in-game purchases."
-                    android:textColor="@color/grey" />
-            </LinearLayout>
-
-            <!-- //////////////////////////////////////////////////////////// -->
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="25dp">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvAtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    app:layout_constraintEnd_toStartOf="@+id/cvDeveloper"
-                    app:layout_constraintStart_toStartOf="parent">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
-                            style="@style/TitleInformation"
-                            android:text="Title" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Play now"
+                            android:textColor="@color/white" />
 
                         <TextView
-                            android:id="@+id/tvATitle"
-                            style="@style/Information"
-                            tools:text="Dauntless" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comanda un barco, sobrevive a batallas épicas y conquista el mar en este juego de estrategia RPG."
+                            android:textColor="#9E9E9E"
+                            android:textSize="13dp" />
+
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvDeveloper"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cvAtitle">
+                    <TextView
+                        android:layout_width="79dp"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="10dp"
+                        android:background="#FFEB3B"
+                        android:gravity="center"
+                        android:text="Abrir"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+            </eightbitlab.com.blurview.BlurView>
 
-                        <TextView
-                            style="@style/TitleInformation"
-                            android:text="Developer" />
-
-                        <TextView
-                            android:id="@+id/tvDeveloper"
-                            style="@style/Information"
-                            tools:text="Dauntless" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="25dp"
-                android:paddingHorizontal="25dp">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvPublisher"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    app:layout_constraintEnd_toStartOf="@+id/cvGenre"
-                    app:layout_constraintStart_toStartOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/TitleInformation"
-                            android:text="Publisher" />
-
-                        <TextView
-                            android:id="@+id/tvPublisher"
-                            style="@style/Information"
-                            tools:text="Publisher" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvGenre"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cvPublisher">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/TitleInformation"
-                            android:text="Genre" />
-
-                        <TextView
-                            android:id="@+id/tvGenre"
-                            style="@style/Information"
-                            tools:text="Genre" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:orientation="vertical">
+                android:layout_margin="25dp"
+                android:background="@drawable/about_bg"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/blurViewX">
 
                 <TextView
-                    style="@style/TitleInformation"
-                    android:text="Storage" />
+
+                    android:id="@+id/textViewTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:text="Acerca\n"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tvPlatform"
-                    style="@style/Information"
-                    tools:text="Storage" />
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:ellipsize="end"
+                    android:focusable="true"
+                    android:text="Descrpcion"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="18dp"
+                android:text="Divulgación: Neat Idea Co trabaja en estrecha colaboración con editores y desarrolladores para ofrecer una experiencia gratuita y gratificante. Para que todo sea gratuito, en ocasiones podemos ganar una pequeña comisión de algunos socios. Encuentre más información en nuestra página de preguntas frecuentes."
+                android:textColor="#B5B5B5"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
-            <!-- //////////////////////////////////////////////////////////// -->
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurViewAdditional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:background="@drawable/blur_bg"
+                app:blurOverlayColor="#6D000000"
+                app:layout_constraintTop_toBottomOf="@id/tvTextView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Información adicional"
+                        android:textColor="@color/orange"
+                        android:textSize="18dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/icon_info"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Please note this free-to-play game may or may not offer optional in-game purchases."
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/gradient_bg" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Fecha de lanzamiento"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvReleaseDate"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Texto"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Desarrollador"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvDeveloper"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Texto"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Editor"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvPublisher"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Texto"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Genero"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvGenre"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Texto"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+                    </TableLayout>
+
+
+                </LinearLayout>
+            </eightbitlab.com.blurview.BlurView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp" />
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="24dp"
+                app:layout_constraintTop_toBottomOf="@id/blurViewAdditional" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="25dp"
-                android:layout_marginVertical="25dp"
-                android:background="#C73742" />
 
-            <LinearLayout
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvRequirements"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="25dp"
-                    android:textColor="@color/orange"
-                    android:textSize="20sp"
-                    android:text="Minimum System Requirements" />
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:paddingHorizontal="25dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvOS"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        app:layout_constraintEnd_toStartOf="@+id/cvProcessor"
-                        app:layout_constraintStart_toStartOf="parent">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvTitleOS"
-                                style="@style/TitleInformation"
-                                android:text="OS" />
-
-                            <TextView
-                                android:id="@+id/tvOS"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/white"
-                                tools:text="Windows 7 DX11 Support" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvProcessor"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/cvOS">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvTitleProcessor"
-                                style="@style/TitleInformation"
-                                android:text="Processor" />
-
-                            <TextView
-                                android:id="@+id/tvProcessor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/white"
-                                tools:text="CPU: i5 SandyBridge" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="15dp"
-                    android:paddingHorizontal="25dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvMemory"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        app:layout_constraintEnd_toStartOf="@+id/cvGraphics"
-                        app:layout_constraintStart_toStartOf="parent">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvTitleMemory"
-                                style="@style/TitleInformation"
-                                android:text="Memory" />
-
-                            <TextView
-                                android:id="@+id/tvMemory"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/white"
-                                tools:text="CPU: i5 SandyBridge" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvGraphics"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/cvMemory">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvTitleGraphics"
-                                style="@style/TitleInformation"
-                                android:text="Graphics" />
-
-                            <TextView
-                                android:id="@+id/tvGraphics"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/white"
-                                tools:text="CPU: i5 SandyBridge" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_margin="24dp"
+                android:background="@drawable/blur_bg"
+                app:blurOverlayColor="#6D000000"
+                app:layout_constraintTop_toBottomOf="@id/rvImage">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="25dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvTitleStorage"
-                        style="@style/TitleInformation"
-                        android:text="Storage" />
-
-                    <TextView
-                        android:id="@+id/tvStorage"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        tools:text="CPU: i5 SandyBridge" />
-                </LinearLayout>
-            </LinearLayout>
+                        android:padding="16dp"
+                        android:text="Requisitos mínimos del sistema"
+                        android:textColor="@color/orange"
+                        android:textSize="18dp" />
 
-            <LinearLayout
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/gradient_bg" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="OS"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvOs"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Intel i7"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Procesador"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvProcessor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Intel i7"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Memoria"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvMemory"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Intel i7"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Gráficos"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvGraphics"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Intel i7"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Almacenamiento"
+                                android:textColor="#B5B5B5" />
+
+                            <TextView
+                                android:id="@+id/tvStorage"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Intel i7"
+                                android:textColor="#73FBFD" />
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+            </eightbitlab.com.blurview.BlurView>
+
+            <TextView
+                android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:background="#11121A"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:layout_margin="18dp"
+                android:text="Todo el material de esta página tiene derechos de autor de ©miHoYo y sus respectivos licenciantes. Todas las demás marcas comerciales son propiedad de sus respectivos dueños."
+                android:textColor="#B5B5B5"
+                app:layout_constraintTop_toBottomOf="@+id/blurView3" />
 
-                <TextView
-                    android:id="@+id/linkProfile"
-                    style="@style/Link"
-                    android:text="Profile" />
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="18dp"
+                android:background="@color/blue"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-                <TextView
-                    android:id="@+id/linkGame"
-                    style="@style/Link"
-                    android:text="Game" />
+            <TextView
+                android:id="@+id/tvProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="Perfil"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-                <TextView
-                    android:id="@+id/linkPrivacy"
-                    style="@style/Link"
-                    android:text="Privacy" />
+            <TextView
+                android:id="@+id/tvSitemap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="Mapa del sitio"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfile" />
 
-            </LinearLayout>
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="18dp"
+                android:background="@color/blue"
+                app:layout_constraintTop_toBottomOf="@+id/tvSitemap" />
 
-        </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/view3">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/img" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="#E1000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/icono_logo" />
+
+                    <TextView
+                        android:id="@+id/tvNIC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="Neat Idea Co"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/icon_circle"
+        app:tint="#E1000000" />
+
+    <ImageView
+        android:id="@+id/ivReturn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/icon_navigation_before"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/icon_circle"
+        app:tint="#E1000000" />
+
+    <ImageView
+        android:id="@+id/ivFavorite"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="26dp"
+        app:srcCompat="@drawable/icon_favorite"
+        app:tint="@color/white" />
+
 </FrameLayout>

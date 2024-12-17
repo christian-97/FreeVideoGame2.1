@@ -6,7 +6,9 @@ data class GameListResponse (
     val title: String,
     val genre: String,
     val release_date: String,
-    val platform: String
+    val platform: String,
+    val short_description: String,
+    val publisher: String,
 )
 
 typealias GameList = List<GameListResponse>

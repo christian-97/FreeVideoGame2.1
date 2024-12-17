@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
 
-    var retrofit = Retrofit.Builder().baseUrl("https://www.freetogame.com/api/").addConverterFactory(
+    private var retrofit: Retrofit = Retrofit.Builder().baseUrl("https://www.freetogame.com/api/").addConverterFactory(
         GsonConverterFactory.create()).build()
 
     fun getInstace(): ApiService {

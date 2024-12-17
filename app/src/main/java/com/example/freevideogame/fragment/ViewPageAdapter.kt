@@ -2,16 +2,17 @@ package com.example.freevideogame.fragment
 
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 
 
-class ViewPagerAdapter(activity: FragmentActivity): FragmentStateAdapter(activity) {
+class ViewPagerAdapter(activity: StartFragment): FragmentStateAdapter(activity) {
 
     private val fragments = listOf(
-        StartFragment(),
-        CategoryFragment()
+        GamesFragment(),
+        CategoryFragment(),
+        PlatformFragment(),
+        RelevanceFragment(),
     )
 
     override fun getItemCount() = fragments.size

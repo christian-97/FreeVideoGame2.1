@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/pb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminateTint="@color/orange"
-            android:visibility="gone"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/selected"
+                android:backgroundTint="@color/black"
+                app:tabMode="scrollable"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tabIndicatorColor="#9C1D54"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorHeight="2dp"
+                app:tabSelectedTextColor="#9C1D54"
+                app:tabTextColor="@color/grey" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvGame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

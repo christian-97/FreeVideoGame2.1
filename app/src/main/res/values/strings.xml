@@ -1,18 +1,17 @@
 <resources>
     <string name="app_name">NIC</string>
     <string name="logo_name">Virtual Realm</string>
+    <string name="prefs_file">com.example.freevideogame.PREFERENCE_FILE_KEY</string>
+    <string name="client_id">1094802951228-o18fkpgkbkqedcfivl7h4mfrv4vnkp82.apps.googleusercontent.com</string>
 
-    <string name="login_user">Enter user</string>
+    <string name="login_user">Enter email</string>
     <string name="login_password">Enter password</string>
 
-    <string name="login_hint_user">User</string>
+    <string name="login_hint_user">Email</string>
     <string name="login_hint_password">Password</string>
     <string name="login_sign_in">SIGN IN</string>
     <string name="login_title">Log In</string>
     <string name="login_message_mistake">Incorrect username and/or password. Try again</string>
-
-    <string name="login_helper_user">Enter a valid user</string>
-    <string name="login_helper_password">Enter a valid password</string>
 
     <string name="error_user">Enter a valid user</string>
     <string name="error_password">Enter a valid password</string>
@@ -22,4 +21,29 @@
 
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
+
+    <string name="message">Bienvenido a un mundo de juegos gratuitos: conecta, juega y comparte tu pasión por los videojuegos con una comunidad global.</string>
+    <string name="verify_email">Para comenzar a usar NIC, haga clic en el enlace de verificación en el correo electrónico que le enviamos a %1$s</string>
+
+    <string name="log_out">Cierra sesión y vuelve a intentarlo con un correo electrónico diferente.</string>
+
+    <string name="questions1">NeatIdeaCo es una plataforma de juegos que reúne los mejores juegos multijugador en línea gratuitos y juegos MMO en un solo lugar conveniente. No solo ofrece una selección seleccionada de juegos de PC gratuitos de varios géneros, sino que también recompensa a los jugadores con botín premium gratuito y ventajas exclusivas.
+Además, los usuarios pueden mantener su propia biblioteca de juegos, realizar un seguimiento de su historial de juegos y buscar fácilmente su próximo juego favorito. Ya sea que te gusten los MMORPG, MOBA, FPS o los juegos de estrategia, NeatIdeaCo ofrece una experiencia de juego integral adaptada a tus intereses.
+    NeatIdeaCo también ofrece una API pública gratuita a la que se puede acceder sin restricciones ni la necesidad de crear una cuenta. Esta API de base de datos de juegos gratuitos proporciona a los desarrolladores y entusiastas datos valiosos para mejorar sus proyectos de juegos.</string>
+
+    <string name="questions2">Los juegos de NeatIdeaCo son esos títulos increíbles a los que puedes acceder sin ningún costo inicial. No todos los juegos son iguales, pero la conclusión es que deberías poder disfrutar del juego sin necesidad de abrir tu billetera.
+    Tienes la libertad de probar un juego gratuito todo el tiempo que quieras, familiarizarte con él y, si te gusta, también tienes la opción de disfrutar de algunos extras interesantes, como máscaras y armas. , o expansiones.
+    Sin embargo, es importante tener en cuenta que esos extras pagados siempre deben ser completamente opcionales. Un buen juego gratuito nunca debería obligarte a gastar dinero.</string>
+
+    <string name="questions3">¡Absolutamente! Hay una gran cantidad de juegos para PC disponibles de forma gratuita. Muchos juegos siguen un modelo "gratuito", lo que significa que puedes descargarlos y empezar a jugarlos sin gastar un centavo.
+    Si bien la mayoría de los juegos gratuitos ofrecen compras opcionales dentro del juego para contenido adicional o personalización, la experiencia principal suele ser completamente gratuita.</string>
+
+    <string name="questions4">Los juegos de Neat Idea Co se pueden instalar y jugar de forma gratuita inicialmente. Sin embargo, una vez que los jugadores profundizan en el juego, a menudo encuentran oportunidades opcionales para comprar contenido adicional, como elementos, mapas y opciones de personalización. Algunos juegos también integran publicidad dentro del juego como medio para generar ingresos.</string>
+
+    <string name="text1">Creamos Neat Idea Co para crear un ecosistema que reúna los mejores juegos gratuitos y juegos MMO en un solo lugar y, al mismo tiempo, recompense a los jugadores con botín premium gratuito en el juego, ofertas especiales y ventajas exclusivas. Nuestra visión es crear la experiencia de juego más emocionante y gratificante rompiendo el concepto inflexible de las tiendas digitales. Obtienes más valor... y todo sigue siendo completamente gratis.</string>
+    <string name="text2">Neat Idea Co es una plataforma de juegos que reúne los mejores juegos multijugador y juegos MMO gratuitos en un solo lugar y, al mismo tiempo, recompensa a los jugadores con botín premium gratuito y ventajas exclusivas. Además, mantén tu propia biblioteca de juegos, haz un seguimiento de lo que has jugado y busca qué jugar a continuación.</string>
+    <string name="text3">Somos un pequeño grupo de jugadores apasionados y entusiastas de la tecnología. Nuestra empresa independiente, Digiwalls Media, está completamente iniciada y nuestro equipo actualmente trabaja de forma remota desde Estados Unidos, Europa e incluso Asia.\n\n
+    Somos lo más independientes posible, pero durante más de 13 años hemos trabajado y colaborado con compañías increíbles como Microsoft, Sony Interactive Entertainment, Nintendo, Square Enix, Paradox Interactive, Warner Bros Entertainment, Bandai Namco, Wargaming, Perfect World Entertainment, Nexon, Webzen, Gamigo y cientos más.\n\n
+    En este momento, estamos trabajando estrechamente con las principales compañías de juegos gratuitos del mundo para ofrecerle lo mejor que el juego gratuito tiene para ofrecer.</string>
+
 </resources>

@@ -15,9 +15,18 @@
             android:id="@+id/tbMain"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#010506"
+            android:background="@color/main"
             app:titleTextColor="@color/white"
             app:layout_scrollFlags="scroll|enterAlways">
+
+            <ImageView
+                android:id="@+id/ivUser"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/icon_user"
+                app:tint="@color/white"/>
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="8dp"
-    android:layout_marginHorizontal="3dp"
-    android:layout_marginVertical="3dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:scaleType="fitXY" />
+        android:layout_height="170dp"
+        android:scaleType="fitXY"
+        android:paddingHorizontal="10dp"
+        android:src="@drawable/header_bg"/>
 
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

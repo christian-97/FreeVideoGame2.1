@@ -9,7 +9,11 @@ import com.squareup.picasso.Picasso
 class ScreenshotsViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val binding = ItemScreenshotsBinding.bind(view)
 
-    fun bind(screenshots: Screenshots) {
+    fun bind(screenshots: Screenshots, onItemSelected:(String) -> Unit) {
         Picasso.get().load(screenshots.image).into(binding.ivImage)
+
+        binding.root.setOnClickListener {
+            onItemSelected(screenshots.image)
+        }
     }
 }

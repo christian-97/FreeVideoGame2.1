@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.makeramen.roundedimageview.RoundedImageView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:adjustViewBounds="true"
-    app:riv_corner_radius="12dp">
+    app:cardCornerRadius="10dp">
 
-</com.makeramen.roundedimageview.RoundedImageView>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/header_bg"/>
+
+</androidx.cardview.widget.CardView>
